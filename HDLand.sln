@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HDLand", "HDLand\HDLand.csproj", "{9E95F256-5D4F-43D7-9737-CF6E9DA1252E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HDLand.Logic", "HDLand.Logic\HDLand.Logic.csproj", "{9C70643C-9E14-4F38-9C41-9FC6D54947B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HDLand.Application", "HDLand.Application\HDLand.Application.csproj", "{3F894BFD-DCF8-44BB-BC9D-EF4C12D606B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HDLand.Persistance", "HDLand.Persistance\HDLand.Persistance.csproj", "{76C1F2B7-7ABB-4B97-9A88-C3C6BBB64A31}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{94732E2E-F96A-42D8-9E3E-1FB1B9E5443E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E95F256-5D4F-43D7-9737-CF6E9DA1252E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E95F256-5D4F-43D7-9737-CF6E9DA1252E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E95F256-5D4F-43D7-9737-CF6E9DA1252E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E95F256-5D4F-43D7-9737-CF6E9DA1252E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C70643C-9E14-4F38-9C41-9FC6D54947B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C70643C-9E14-4F38-9C41-9FC6D54947B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C70643C-9E14-4F38-9C41-9FC6D54947B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C70643C-9E14-4F38-9C41-9FC6D54947B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F894BFD-DCF8-44BB-BC9D-EF4C12D606B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F894BFD-DCF8-44BB-BC9D-EF4C12D606B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F894BFD-DCF8-44BB-BC9D-EF4C12D606B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F894BFD-DCF8-44BB-BC9D-EF4C12D606B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76C1F2B7-7ABB-4B97-9A88-C3C6BBB64A31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76C1F2B7-7ABB-4B97-9A88-C3C6BBB64A31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76C1F2B7-7ABB-4B97-9A88-C3C6BBB64A31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76C1F2B7-7ABB-4B97-9A88-C3C6BBB64A31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94732E2E-F96A-42D8-9E3E-1FB1B9E5443E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94732E2E-F96A-42D8-9E3E-1FB1B9E5443E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94732E2E-F96A-42D8-9E3E-1FB1B9E5443E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94732E2E-F96A-42D8-9E3E-1FB1B9E5443E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
