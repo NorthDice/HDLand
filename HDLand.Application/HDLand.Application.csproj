@@ -10,4 +10,8 @@
     <ProjectReference Include="..\HDLand.Logic\HDLand.Logic.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>
