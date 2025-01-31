@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HDLand.Logic\HDLand.Logic.csproj" />
+    <PackageReference Include="RestSharp" Version="112.1.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\HDLand.Logic\HDLand.Logic.csproj" />
   </ItemGroup>
 
 </Project>
