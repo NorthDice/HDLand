@@ -14,10 +14,17 @@ namespace HDLand.Controllers
             _movieService = movieService;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetMovieById(int id)
         {
             var movieData = await _movieService.GetMovieByIdAsync(id);
+            return Ok(movieData);
+        }
+
+        [HttpGet("{query}")]
+        public async Task<IActionResult> GetMovieByName(string query)
+        {
+            var movieData = await _movieService.GetMovieByNameAsync(query);
             return Ok(movieData);
         }
     }
