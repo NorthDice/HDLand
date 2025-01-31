@@ -9,5 +9,6 @@ namespace HDLand.Logic.Interfaces
     public interface IMovieService
     {
         Task<string> GetMovieByIdAsync(int movieId);
+        Task<string> GetMovieByNameAsync(string query);
     }
 }

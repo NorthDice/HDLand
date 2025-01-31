@@ -15,7 +15,7 @@ namespace HDLand.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetMovie(int id)
+        public async Task<IActionResult> GetMovieById(int id)
         {
             var movieData = await _movieService.GetMovieByIdAsync(id);
             return Ok(movieData);
