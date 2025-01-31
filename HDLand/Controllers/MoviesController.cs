@@ -84,5 +84,42 @@ namespace HDLand.Controllers
 
             return Ok(filteredMovieData);
         }
+
+        [HttpGet("trending")]
+        public async Task<IActionResult> GetAllMovies(string timeWindow = "day")
+        {
+            if (timeWindow != "day" && timeWindow != "week")
+            {
+                return BadRequest("Invalid time window. Use 'day' or 'week'.");
+            }
+
+            var movieDataString = await _movieService.GetAllMoviesAsync(timeWindow);
+
+            if (string.IsNullOrWhiteSpace(movieDataString))
+            {
+                return BadRequest("Movie data is empty or malformed.");
+            }
+
+            var movieSearchResult = JsonConvert.DeserializeObject<MovieSearchResult>(movieDataString);
+
+            if (movieSearchResult?.Results == null || !movieSearchResult.Results.Any())
+            {
+                return NotFound("No trending movies found.");
+            }
+
+            var filteredMovies = movieSearchResult.Results
+                .Select(movie => new GetMovieResponse(
+                    Id: movie.Id,
+                    Title: movie.Title,
+                    Overview: movie.Overview,
+                    PosterPath: movie.PosterPath,
+                    ReleaseDate: movie.ReleaseDate,
+                    VoteAverage: movie.VoteAverage.ToString(),
+                    VoteCount: movie.VoteCount.ToString()
+                ))
+                .ToList();
+
+            return Ok(filteredMovies);
+        }
     }
 }
