@@ -86,3 +86,38 @@
 .header-actions__button:hover {
     background-color: var(--button-color);
 }
+.auth-menu {
+    position: absolute;
+    right: 0rem;
+    top: 5rem;
+    background-color: var(--secondary-color);
+    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    width: 20rem;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .auth-menu__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .auth-menu__link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    width: 20rem; 
+    height: 6rem; 
+    color : var(--text-color);
+    font-weight: 600;
+    transition: background 0.3s ease;
+    padding-left: 2rem; 
+    box-sizing: border-box; 
+  }
+  .auth-menu__link:hover {
+    background: var(--link-action-hover);
+  }

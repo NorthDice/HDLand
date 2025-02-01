@@ -1,4 +1,3 @@
-import React from 'react'
 import './Header.css'
 import { Link } from "react-router-dom";
 import land from '../assets/land.png'
@@ -6,9 +5,16 @@ import bookmark from '../assets/bookmark.png'
 import search from '../assets/search.png'
 import person from '../assets/person.png'
 import pers from '../assets/pers.png'
+import React, { useState } from 'react';
 
 
 const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <header className="header">
 
@@ -48,14 +54,25 @@ const Header = () => {
             />
           </Link>
 
-          <button className="header-actions__button">
-            <img
-              src={pers}
-              alt="authorization"
-              className="header-actions__img"
-            />
+          <button 
+            onClick={toggleMenu}
+            className="header-actions__button">
+              <img
+                src={pers}
+                alt="authorization"
+                className="header-actions__img"
+              />
           </button>
         </div>
+
+        {menuOpen && (
+          <div className="auth-menu">
+            <ul className="auth-menu__list">
+              <li><Link to="/login" className="auth-menu__link">Login</Link></li>
+              <li><Link to="/register" className="auth-menu__link">Register</Link></li>
+            </ul>
+          </div>
+        )}
 
     </header>
   )
