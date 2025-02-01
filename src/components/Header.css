@@ -6,13 +6,16 @@
     top: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between;
     background-color: var(--secondary-color);
     align-items: center;
     z-index: 100;
 }
 .header a:hover {
     color: var(--link-hover-color);
+}
+.header-nav {
+    margin-left: 5rem;
+    margin-right: 55rem;
 }
 .header-nav__link {
     text-decoration: none;
@@ -22,6 +25,7 @@
 .header-logo {
     display: flex;
     align-items: center;
+    margin-left: 3rem;
 }
 .logo-container__title{
     font-size: 1rem;
