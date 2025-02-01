@@ -1,7 +1,12 @@
 import React from 'react'
 import './Header.css'
 import { Link } from "react-router-dom";
-import { FaSearch, FaHeart, FaBars } from "react-icons/fa";
+import land from '../assets/land.png'
+import bookmark from '../assets/bookmark.png'
+import search from '../assets/search.png'
+import person from '../assets/person.png'
+import pers from '../assets/pers.png'
+
 
 const Header = () => {
   return (
@@ -10,7 +15,7 @@ const Header = () => {
         <div className="header-logo">
             <a className="header-logo__link">
                 <img
-                  src="https://img.icons8.com/?size=64&id=104374&format=png"
+                  src={land}
                   alt="lendLogo"
                   className="header-logo__img"
                 />
@@ -29,7 +34,7 @@ const Header = () => {
         <div className="header-actions">
           <Link className="header-actions__link" to="/search">
               <img
-                src="https://img.icons8.com/?size=50&id=132&format=png"
+                src={search}
                 alt="search"
                 className="header-actions__img"
               />
@@ -37,7 +42,7 @@ const Header = () => {
 
           <Link className="header-actions__link" to="/favourites">
             <img
-              src="https://img.icons8.com/?size=50&id=25157&format=png"
+              src={bookmark}
               alt="favourites"
               className="header-actions__img"
             />
@@ -45,7 +50,7 @@ const Header = () => {
 
           <button className="header-actions__button">
             <img
-              src="https://img.icons8.com/?size=80&id=111473&format=png"
+              src={pers}
               alt="authorization"
               className="header-actions__img"
             />
