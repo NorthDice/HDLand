@@ -1,0 +1,64 @@
+@import "../../variables.css";
+
+.login-form-container {
+    
+    background-color: var(--form-color);
+    color: var(--text-color);
+    max-width: 30rem;
+    margin: 5rem auto;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.form-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.form-group__input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 3px solid white;
+    background-color: var(--form-color);
+    color: white;
+    transition: border-bottom 0.3s ease-in-out;
+}
+
+.form-group__input:focus {
+    border-bottom: 3px solid var(--button-color);
+    outline: none;
+}
+
+.form-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: var(--button-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.form-button:hover {
+    background-color: var(--button-hover-color);
+}
