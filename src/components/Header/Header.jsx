@@ -1,19 +1,17 @@
 import './Header.css'
 import { Link } from "react-router-dom";
-import land from '../assets/land.png'
-import bookmark from '../assets/bookmark.png'
-import search from '../assets/search.png'
-import person from '../assets/person.png'
-import pers from '../assets/pers.png'
-import React, { useState } from 'react';
-
+import land from '../../assets/land.png'
+import bookmark from '../../assets/bookmark.png'
+import search from '../../assets/search.png'
+import pers from '../../assets/pers.png'
+import { useState, useEffect, useRef } from 'react';
+import { useMenuHandlers } from '../../utils/menuUtils';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  const menuRef = useRef(null);
+  
+  const { toggleMenu } = useMenuHandlers(menuOpen, setMenuOpen, menuRef);
 
   return (
     <header className="header">
@@ -68,8 +66,15 @@ const Header = () => {
         {menuOpen && (
           <div className="auth-menu">
             <ul className="auth-menu__list">
-              <li><Link to="/login" className="auth-menu__link">Login</Link></li>
-              <li><Link to="/register" className="auth-menu__link">Register</Link></li>
+              <li>
+                <Link to="/login" className="auth-menu__link">Login</Link>
+              </li>
+              <li>
+                <Link to="/register" className="auth-menu__link">Register</Link>
+              </li>
+              <li>
+                <Link to="/" className="auth-menu__link">New features(Soon)</Link>
+              </li>
             </ul>
           </div>
         )}
