@@ -11,6 +11,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        builder => builder.WithOrigins("http://localhost:5174")
+                          .AllowAnyHeader()
+                          .AllowAnyMethod());
+});
+
 builder.Services.AddScoped<IMovieService, MovieService>();
 
 var app = builder.Build();
@@ -29,6 +37,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.UseCors("AllowSpecificOrigin");
 
 app.UseSwagger();
 
