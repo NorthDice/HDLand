@@ -36,7 +36,7 @@ const Header = () => {
         </nav>
 
         <div className="header-actions">
-          <Link className="header-actions__link" to="/search">
+          <Link className="header-actions__link" to="/search" >
               <img
                 src={search}
                 alt="search"
@@ -67,12 +67,12 @@ const Header = () => {
           <div className="auth-menu">
             <ul className="auth-menu__list">
               <li>
-                <Link to="/login" target="_blank" rel="noopener noreferrer" className="auth-menu__link">
+                <Link to="/login" className="auth-menu__link">
                   Login
                 </Link>
               </li>
               <li>
-              <Link to="/register" target="_blank" rel="noopener noreferrer" className="auth-menu__link">
+              <Link to="/register" className="auth-menu__link">
                  Register
                </Link>
               </li>
