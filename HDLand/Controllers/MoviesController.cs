@@ -121,5 +121,50 @@ namespace HDLand.Controllers
 
             return Ok(filteredMovies);
         }
+
+        [HttpGet("search")]
+        public async Task<IActionResult> SearchMovies(string query, int page = 1, int pageSize = 20)
+        {
+            if (string.IsNullOrWhiteSpace(query))
+            {
+                return BadRequest("Query cannot be empty.");
+            }
+
+            var movieDataString = await _movieService.GetMovieByNameAsync(query, page, pageSize);
+
+            if (string.IsNullOrWhiteSpace(movieDataString))
+            {
+                return BadRequest("Movie data is empty or malformed.");
+            }
+
+            var movieSearchResult = JsonConvert.DeserializeObject<MovieSearchResult>(movieDataString);
+
+            if (!movieSearchResult?.Results.Any() ?? true)
+            {
+                return NotFound("No movies found.");
+            }
+
+            var filteredMovies = movieSearchResult.Results
+                .Where(movie => !string.IsNullOrWhiteSpace(movie.PosterPath)) // Exclude movies with null or empty PosterPath
+                .Select(movie => new GetMovieResponse(
+                    Id: movie.Id,
+                    Title: movie.Title,
+                    Overview: movie.Overview,
+                    PosterPath: movie.PosterPath,
+                    ReleaseDate: movie.ReleaseDate,
+                    VoteAverage: movie.VoteAverage.ToString(),
+                    VoteCount: movie.VoteCount.ToString()
+                ))
+                .ToList();
+
+            return Ok(new
+            {
+                page,
+                pageSize,
+                totalResults = movieSearchResult.TotalResults,
+                totalPages = movieSearchResult.TotalPages,
+                results = filteredMovies
+            });
+        }
     }
 }
