@@ -1,22 +1,52 @@
-import React, { useState } from 'react';
-import './Search.css'; 
+import React, { useEffect, useState } from 'react';
+import './Search.css';
+import { fetchMovieBySearch } from '../../api';
+import MovieCard from '../MovieCard/MovieCard';
 
 const Search = () => {
   const [query, setQuery] = useState('');
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (!query.trim()) {
+      setMovies([]);
+      return;
+    }
+
+    const delayDebounce = setTimeout(() => {
+      setLoading(true);
+      fetchMovieBySearch(query, 1) 
+        .then((data) => {
+          console.log("Fetched data:", data);
+
+          if (data && data.results) {
+            setMovies(data.results);
+          } else {
+            setMovies([]);
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching movies:", error);
+          setMovies([]);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }, 300);
+
+    return () => clearTimeout(delayDebounce);
+  }, [query]);
 
   const handleChange = (e) => {
     setQuery(e.target.value);
   };
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    console.log('Searching for:', query);
-  };
-
   return (
+    <>
     <div className="search-container">
       <h1 className="search-title">Search</h1>
-      <form className="search-form" onSubmit={handleSearch}>
+      <form className="search-form" onSubmit={(e) => e.preventDefault()}>
         <div className="form-group">
           <label htmlFor="searchQuery" className="form-group__label">Search Query</label>
           <input
@@ -30,9 +60,20 @@ const Search = () => {
             required
           />
         </div>
-        <button type="submit" className="form-button">Search</button>
       </form>
+
+      {loading && <p className="loading-text">Loading...</p>}
     </div>
+    <div className="search-results">
+    {movies.length > 0 ? (
+      movies.map((movie) => (
+        <MovieCard key={movie.id} movie={movie} />
+      ))
+    ) : (
+      query && <p>No movies found.</p>
+    )}
+  </div>
+  </>
   );
 };
 
