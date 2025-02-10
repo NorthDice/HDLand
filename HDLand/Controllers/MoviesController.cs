@@ -145,7 +145,7 @@ namespace HDLand.Controllers
             }
 
             var filteredMovies = movieSearchResult.Results
-                .Where(movie => !string.IsNullOrWhiteSpace(movie.PosterPath)) // Exclude movies with null or empty PosterPath
+                .Where(movie => !string.IsNullOrWhiteSpace(movie.PosterPath)) 
                 .Select(movie => new GetMovieResponse(
                     Id: movie.Id,
                     Title: movie.Title,
