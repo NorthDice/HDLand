@@ -9,11 +9,11 @@
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Repositories\" />
-    <Folder Include="Mapper\" />
     <Folder Include="Authentication\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.1" />
   </ItemGroup>
 
