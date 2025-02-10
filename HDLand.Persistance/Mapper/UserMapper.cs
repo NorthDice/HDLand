@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using HDLand.Logic.Entities;
+using HDLand.Logic.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,3 +18,4 @@ namespace HDLand.Persistance.Mapper
             CreateMap<User, UserEntity>();
         }
     }
+}
