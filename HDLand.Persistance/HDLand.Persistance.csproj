@@ -11,7 +11,14 @@
     <Folder Include="Repositories\" />
     <Folder Include="Mapper\" />
     <Folder Include="Authentication\" />
-    <Folder Include="Configuration\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HDLand.Logic\HDLand.Logic.csproj" />
   </ItemGroup>
 
 </Project>
