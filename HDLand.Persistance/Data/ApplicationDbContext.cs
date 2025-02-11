@@ -1,4 +1,5 @@
-﻿using HDLand.Logic.Models;
+﻿using HDLand.Logic.Entities;
+using HDLand.Logic.Models;
 using HDLand.Persistance.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -14,6 +15,10 @@ namespace HDLand.Persistance.Data
       DbContextOptions<ApplicationDbContext> options,
       IOptions<AuthorizationOptions> authOptions) : DbContext(options)
     {
+        public DbSet<UserEntity> Users { get; set; }
+
+        public DbSet<RoleEntity> Roles { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UserConfiguration());
