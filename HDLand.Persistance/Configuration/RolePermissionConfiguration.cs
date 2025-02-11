@@ -17,6 +17,11 @@ namespace HDLand.Persistance.Configuration
 
         private readonly AuthorizationOptions _authorizationOptions;
 
+        public RolePermissionConfiguration()
+        {
+            
+        }
+
         public RolePermissionConfiguration(AuthorizationOptions authorizationOptions)
         {
             _authorizationOptions = authorizationOptions;
