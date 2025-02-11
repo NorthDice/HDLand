@@ -20,7 +20,7 @@ namespace HDLand.Persistance.Data
 
             modelBuilder.ApplyConfiguration(new RoleConfiguration());
 
-            modelBuilder.ApplyConfiguration(new RolePermissionConfiguration());
+            modelBuilder.ApplyConfiguration(new RolePermissionConfiguration(authOptions.Value));
 
             modelBuilder.ApplyConfiguration(new PermissionConfiguration());
 
