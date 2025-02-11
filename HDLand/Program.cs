@@ -2,6 +2,7 @@ using HDLand.Application.Services;
 using HDLand.Logic.Interfaces;
 using HDLand.Logic.Interfaces.JWT;
 using HDLand.Logic.Models;
+using HDLand.Logic.Models.Connection;
 using HDLand.Logic.Models.JWT;
 using HDLand.Logic.Models.Password;
 using HDLand.Persistance.Data;
@@ -36,9 +37,12 @@ builder.Services.AddScoped<IMovieService, MovieService>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<UserService>();
 
-string connection = builder.Configuration.GetConnectionString("DefaultConnection");
+string? connection = builder.Configuration.GetConnectionString(ConnectionString.connectionString)
+    ?? throw new InvalidOperationException($"Connection string {ConnectionString.connectionString} is missing.");
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connection));
+
 
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("JwtOptions"));
 builder.Services.Configure<AuthorizationOptions>(builder.Configuration.GetSection(nameof(AuthorizationOptions)));
