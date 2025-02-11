@@ -77,7 +77,6 @@ app.UseCookiePolicy(new CookiePolicyOptions
 });
 
 
-
 app.UseAuthorization();
 app.UseAuthentication();
 
