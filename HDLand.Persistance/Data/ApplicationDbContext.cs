@@ -3,6 +3,7 @@ using HDLand.Logic.Models;
 using HDLand.Persistance.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
 using System;
 using System.Collections.Generic;
 using System.Linq;

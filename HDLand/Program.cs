@@ -3,6 +3,7 @@ using HDLand.Logic.Interfaces;
 using HDLand.Logic.Interfaces.JWT;
 using HDLand.Logic.Models;
 using HDLand.Logic.Models.Connection;
+using HDLand.Logic.Models.Extensions;
 using HDLand.Logic.Models.JWT;
 using HDLand.Logic.Models.Password;
 using HDLand.Persistance.Data;
@@ -85,6 +86,8 @@ app.UseSwaggerUI(c =>
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "HDLand");
     c.RoutePrefix = string.Empty;
 });
+
+app.ApplyMigrations();
 
 app.MapRazorPages();
 

@@ -5,16 +5,16 @@ services:
       context: .
       dockerfile: HDLand/Dockerfile
     ports:
-        - "8080:8080"
+        - "8081:8081"
     container_name: hdland_webapi
     depends_on: 
-        - db
-  db: 
+        - hdland_db
+  hdland_db: 
     image: postgres:latest
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
       POSTGRES_DB: hdland
+      POSTGRES_PASSWORD: 1111
     ports:
       - "5432:5432"
     volumes:
