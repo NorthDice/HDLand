@@ -72,3 +72,22 @@
   gap: 2rem;
   margin: 0rem 5rem 7rem;
 }
+
+
+.no-results {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
+  margin-top: 2rem;
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--button-color); 
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.no-results-container {
+  width: 80rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

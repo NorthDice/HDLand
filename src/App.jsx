@@ -7,6 +7,8 @@ import Search from './components/Search/Search';
 import TrendingMovies from './components/TrendingMovies/TrendingMovies';
 import Footer from './components/Footer/Footer';
 import MovieCard from './components/MovieCard/MovieCard';
+import About from './components/About/About';
+import Contacts from './components/Contacts/Contacts';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/search" element={<Search />} />
         <Route path="/" element={<TrendingMovies />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element = {<Contacts />} />
       </Routes>
 
       <Footer />

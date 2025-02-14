@@ -1,6 +1,6 @@
 export const fetchTrendingMovies = async () => {
     try {
-      const response = await fetch("https://localhost:60222/Movies/trending?timeWindow=day");
+      const response = await fetch("https://localhost:8081/Movies/trending?timeWindow=day");
       if (!response.ok) {
         throw new Error("Failed to fetch movies");
       }
@@ -13,7 +13,7 @@ export const fetchTrendingMovies = async () => {
   
   export const fetchMovieByName = async (query) => {
     try{
-      const response = await fetch(`https://localhost:60222/Movies/${query}`);
+      const response = await fetch(`https://localhost:8081/Movies/${query}`);
       if (!response.ok) {
         throw new Error("Failed to find movie");
       }
@@ -27,7 +27,7 @@ export const fetchTrendingMovies = async () => {
   export const fetchMovieBySearch = async (query, page = 1, pageSize = 20) => {
     try {
       const response = await fetch(
-        `https://localhost:60222/Movies/search?query=${encodeURIComponent(query)}&page=${page}&pageSize=${pageSize}`
+        `https://localhost:8081/Movies/search?query=${encodeURIComponent(query)}&page=${page}&pageSize=${pageSize}`
       );
       if (!response.ok) {
         throw new Error("Failed to find movies");

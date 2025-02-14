@@ -1,11 +1,38 @@
-import React from 'react'
-import './Login.css' 
+import React, { useState } from 'react'
+import './Login.css'
+import { loginUser } from '../../accountApi'
 
 const Login = () => {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); 
+    
+    const { email, password } = formData;
+
+    try {
+      await loginUser(email, password); 
+      alert("Login successful!");
+    } catch (error) {
+      console.error("Login failed:", error);
+      alert("Login failed");
+    }
+  };
+
   return (
     <div className="login-form-container">
       <h1 className="form-title">Login to Your Account</h1>
-      <form className="login-form">
+      <form className="login-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input
@@ -14,6 +41,8 @@ const Login = () => {
             name="email"
             className="form-group__input"
             placeholder="Enter your email"
+            value={formData.email}
+            onChange={handleChange}
             required
           />
         </div>
@@ -25,6 +54,8 @@ const Login = () => {
             name="password"
             className="form-group__input"
             placeholder="Enter your password"
+            value={formData.password}
+            onChange={handleChange}
             required
           />
         </div>
@@ -34,4 +65,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Login;
