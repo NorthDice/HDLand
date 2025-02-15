@@ -29,7 +29,7 @@ namespace HDLand.Controllers
             {
                 var token = await _userService.Login(request.Email, request.Password);
 
-                Response.Cookies.Append("Shortener", token);
+                Response.Cookies.Append("HDLand", token);
             }
             return Ok();
         }
