@@ -16,7 +16,7 @@
 }
 
 .movie-card:hover .movie-card__img {
-    filter: brightness(0.6);
+    filter: brightness(0.8);
 }
 
 .movie-card__overlay {

@@ -1,0 +1,18 @@
+@import "../../variables.css";
+
+.favorites__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 5px;
+    background-color: var(--text-color);
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.favorites__button:hover {
+    background-color: var(--button-color);
+}

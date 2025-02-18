@@ -1,5 +1,6 @@
 import React from 'react';
 import './MovieCard.css'; 
+import Button from '../Button/Button';
 
 const MovieCard = ({ movie }) => {
     return (
@@ -11,6 +12,7 @@ const MovieCard = ({ movie }) => {
                 }}
             >
                 <div className="movie-card__overlay">
+                    <Button />
                     <p className="movie-card__title">{movie.title}</p>
                     <p className="movie-card__rating">⭐ {movie.voteAverage}</p>
                     <p className="movie-card__release">📅 {movie.releaseDate}</p>
