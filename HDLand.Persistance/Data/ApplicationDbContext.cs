@@ -20,6 +20,8 @@ namespace HDLand.Persistance.Data
 
         public DbSet<RoleEntity> Roles { get; set; }
 
+        public DbSet<FavoriteMovieEntity> FavoriteMovies { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UserConfiguration());
@@ -29,6 +31,8 @@ namespace HDLand.Persistance.Data
             modelBuilder.ApplyConfiguration(new RolePermissionConfiguration(authOptions.Value));
 
             modelBuilder.ApplyConfiguration(new PermissionConfiguration());
+
+            modelBuilder.ApplyConfiguration(new FavoriteMovieConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

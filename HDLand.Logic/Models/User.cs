@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HDLand.Logic.Entities;
 
 namespace HDLand.Logic.Models
 {
@@ -16,6 +17,7 @@ namespace HDLand.Logic.Models
             UserName = userName;
             PasswordHash = passwordHash;
             Email = email;
+            FavoriteMovies = new List<FavoriteMovieEntity>();
         }
 
         [Key]
@@ -27,6 +29,8 @@ namespace HDLand.Logic.Models
         public string PasswordHash { get; private set; }
 
         public string Email { get; private set; }
+
+        public ICollection<FavoriteMovieEntity> FavoriteMovies { get; set; }
 
         public static User Create(Guid id, string username, string passwordHash, string email)
         {

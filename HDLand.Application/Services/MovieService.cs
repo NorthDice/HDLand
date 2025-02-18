@@ -73,5 +73,20 @@ namespace HDLand.Application.Services
 
             return response.Content ?? string.Empty;
         }
+         
+        public async Task<bool> MovieExistsAsync (int movieId)
+        {
+            var client = ApiClientFactory.CreateClient($"/movie/{movieId}?language=en-US");
+            var request = RequestFactory.CreateRequest();
+
+            var response = await client.GetAsync(request);
+            if (!response.IsSuccessful)
+            {
+                return false;
+            }
+
+            return true;
+
+        }
     }
 }

@@ -12,5 +12,7 @@ namespace HDLand.Logic.Interfaces
         Task<string> GetMovieByNameAsync(string query);
         Task<string> GetAllMoviesAsync(string timeWindow = "day");
         Task<string> GetMovieByNameAsync(string query, int page = 1, int pageSize = 20);
+        Task<bool> MovieExistsAsync(int movieId);
+
     }
 }

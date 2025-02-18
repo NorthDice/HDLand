@@ -37,6 +37,7 @@ builder.Services.AddScoped<IJwtProvider, JwtProvider>();
 builder.Services.AddScoped<IMovieService, MovieService>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<IFavoriteMovieRepository,FavoriteMovieRepository>();
 
 string? connection = builder.Configuration.GetConnectionString(ConnectionString.connectionString)
     ?? throw new InvalidOperationException($"Connection string {ConnectionString.connectionString} is missing.");

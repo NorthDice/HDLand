@@ -1,12 +1,7 @@
 ﻿using AutoMapper;
 using HDLand.Logic.Entities;
 using HDLand.Logic.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using Newtonsoft.Json;
 
 namespace HDLand.Persistance.Mapper
 {
@@ -14,8 +9,15 @@ namespace HDLand.Persistance.Mapper
     {
         public UserMapper()
         {
-            CreateMap<UserEntity, User>();
-            CreateMap<User, UserEntity>();
+           
+            CreateMap<UserEntity, User>()
+                .ForMember(dest => dest.FavoriteMovies, opt => opt.MapFrom(src =>
+                    src.FavoriteMovies));  
+
+            
+            CreateMap<User, UserEntity>()
+                .ForMember(dest => dest.FavoriteMovies, opt => opt.MapFrom(src =>
+                    src.FavoriteMovies));  
         }
     }
 }

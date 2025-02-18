@@ -21,5 +21,7 @@ namespace HDLand.Logic.Entities
         public string Email { get; set; } = string.Empty;
 
         public ICollection<RoleEntity> Roles { get; set; } = [];
+
+        public List<FavoriteMovieEntity> FavoriteMovies { get; set; } = new List<FavoriteMovieEntity>();
     }
 }
