@@ -25,7 +25,8 @@ namespace HDLand.Logic.Models.JWT
         {
             Claim[] claims =
             {
-                new(CustomClaims.UserId, user.Id.ToString())
+                new(CustomClaims.UserId, user.Id.ToString()),
+                new(CustomClaims.Email, user.Email)
             };
 
             var signingCredentials = new SigningCredentials(

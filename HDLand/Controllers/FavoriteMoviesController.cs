@@ -8,6 +8,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HDLand.Contracts;
+using Newtonsoft.Json;
+using System.Diagnostics;
+using HDLand.Logic.Models;
 
 namespace HDLand.Controllers
 {
@@ -72,5 +75,39 @@ namespace HDLand.Controllers
 
             return Ok("Movie removed from favorites");
         }
+
+        [HttpGet("get-favorites")]
+        public async Task<IActionResult> GetFavoriteMovies([FromQuery] string email)
+        {
+            var user = await _userRepository.GetByEmail(email);
+            if (user == null)
+            {
+                return NotFound("User not found");
+            }
+
+            var favoriteMovieIds = await _favoriteMovieRepository.GetFavoriteMovieIds(user.Id);
+            var favoriteMovies = new List<GetMovieResponse>();
+
+            foreach (var movieId in favoriteMovieIds)
+            {
+                var movieJson = await _movieService.GetMovieByIdAsync(movieId);
+                var movie = JsonConvert.DeserializeObject<MovieModel>(movieJson);
+
+                var responseMovieData = new GetMovieResponse(
+                    Id: movie.Id,
+                    Title: movie.Title,
+                    Overview: movie.Overview,
+                    PosterPath: movie.PosterPath,
+                    ReleaseDate: movie.ReleaseDate,
+                    VoteAverage: movie.VoteAverage.ToString(),
+                    VoteCount: movie.VoteCount.ToString()
+                );
+
+                favoriteMovies.Add(responseMovieData);
+            }
+            return Ok(favoriteMovies);
+        }
     }
+
 }
+

@@ -14,10 +14,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 builder.Services.AddRazorPages();
-
-
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
@@ -25,9 +22,10 @@ builder.Services.AddControllers();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
-        builder => builder.WithOrigins("http://localhost:5174")
+        builder => builder.WithOrigins("http://localhost:5176") 
                           .AllowAnyHeader()
-                          .AllowAnyMethod());
+                          .AllowAnyMethod()
+                          .AllowCredentials());  
 });
 
 builder.Services.AddAutoMapper(typeof(UserMapper).Assembly);
@@ -37,7 +35,7 @@ builder.Services.AddScoped<IJwtProvider, JwtProvider>();
 builder.Services.AddScoped<IMovieService, MovieService>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<UserService>();
-builder.Services.AddScoped<IFavoriteMovieRepository,FavoriteMovieRepository>();
+builder.Services.AddScoped<IFavoriteMovieRepository, FavoriteMovieRepository>();
 
 string? connection = builder.Configuration.GetConnectionString(ConnectionString.connectionString)
     ?? throw new InvalidOperationException($"Connection string {ConnectionString.connectionString} is missing.");
@@ -45,14 +43,10 @@ string? connection = builder.Configuration.GetConnectionString(ConnectionString.
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connection));
 
-
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("JwtOptions"));
 builder.Services.Configure<AuthorizationOptions>(builder.Configuration.GetSection(nameof(AuthorizationOptions)));
 
-
-
 var app = builder.Build();
-
 
 if (!app.Environment.IsDevelopment())
 {
@@ -65,22 +59,21 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
 
 app.UseCors("AllowSpecificOrigin");
 
-app.UseSwagger();
-
 app.UseCookiePolicy(new CookiePolicyOptions
 {
-    MinimumSameSitePolicy = SameSiteMode.Strict,
-    HttpOnly = HttpOnlyPolicy.Always,
-    Secure = CookieSecurePolicy.Always
+    MinimumSameSitePolicy = SameSiteMode.None, 
+    HttpOnly = HttpOnlyPolicy.None,             
+    Secure = CookieSecurePolicy.SameAsRequest  
 });
 
 
 app.UseAuthorization();
 app.UseAuthentication();
+
+app.UseSwagger();
 
 app.UseSwaggerUI(c =>
 {
@@ -91,7 +84,6 @@ app.UseSwaggerUI(c =>
 app.ApplyMigrations();
 
 app.MapRazorPages();
-
 app.MapControllers();
 
 app.Run();
