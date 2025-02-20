@@ -1,6 +1,7 @@
 import React from 'react';
 import star from "../../assets/star.png";
 import './Button.css';
+
 const Button = ({ onClick }) => {
   return (
     <div>

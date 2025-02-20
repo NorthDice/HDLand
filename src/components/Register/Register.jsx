@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { registerUser } from '../../accountApi';
 import './Register.css';
+import { toast } from "react-toastify";
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -23,10 +25,11 @@ const Register = () => {
 
     try {
       await registerUser(username, email, password);
-      alert("Registration successful!");
+      toast.success("Registration successful");
+      navigate("/login");
     } catch (error) {
       console.error("Registration failed:", error);
-      alert("Registration failed");
+      toast.error("Registration failed");
     }
   };
 

@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -6,13 +7,15 @@ import Login from './components/Login/Login';
 import Search from './components/Search/Search';
 import TrendingMovies from './components/TrendingMovies/TrendingMovies';
 import Footer from './components/Footer/Footer';
-import MovieCard from './components/MovieCard/MovieCard';
 import About from './components/About/About';
 import Contacts from './components/Contacts/Contacts';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Favorites from './components/Favorites/Favorites';
 
 function App() {
   return (
-    <div className="App-container">      
+    <div className="App-container">
       <Header />
       <Routes>
         <Route path="/register" element={<Register />} />
@@ -20,11 +23,11 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/" element={<TrendingMovies />} />
         <Route path="/about" element={<About />} />
-        <Route path="/contact" element = {<Contacts />} />
+        <Route path="/contact" element={<Contacts />} />
+        <Route path="/favourites" element={<Favorites/>} />
       </Routes>
-
       <Footer />
-      
+      <ToastContainer /> 
     </div>
   );
 }

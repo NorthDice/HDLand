@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import './Login.css'
 import { loginUser } from '../../accountApi'
-
+import { toast } from "react-toastify";
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const [formData, setFormData] = useState({
     email: '',
@@ -22,10 +23,12 @@ const Login = () => {
 
     try {
       await loginUser(email, password); 
-      alert("Login successful!");
+      navigate("/");
+      toast.success("Login successful");
+
     } catch (error) {
       console.error("Login failed:", error);
-      alert("Login failed");
+      toast.error("Login failed");
     }
   };
 
