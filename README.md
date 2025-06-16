@@ -48,7 +48,7 @@ TMDB API: For fetching movie data, including titles, descriptions, and related i
 
 ### Architecture
 #### Backend
-The backend follows Clean Architecture, ensuring modularity, maintainability, and ease of extension. Built with ASP.NET Core, it utilizes Entity Framework for database configuration and management. The API adheres to RESTful principles, providing a clear and consistent structure for frontend integration.
+The backend follows Clean Architecture, ensuring modularity, maintainability, and ease of extension. Built with ASP.NET Core, it utilizes Entity Framework for database configuration and management. The API adheres to RESTful principles, providing a clear and consistent structure for frontend integration
 
 #### Frontend
 The frontend is built with React, leveraging its component-based architecture to create reusable and maintainable UI components. The application interacts with both its own backend API and the TMDB API to deliver a smooth and engaging user experience.
