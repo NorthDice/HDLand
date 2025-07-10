@@ -2,7 +2,7 @@
 HDLand is a full-stack web application designed to provide users with a seamless experience for discovering, exploring, and managing their favorite movies. Leveraging the TMDB API for movie data, HDLand offers a rich and interactive platform for movie enthusiasts. The application features a containerized backend, a robust database, and a modern React-based frontend for an intuitive and responsive user interface.
 
 ## Features
-- Movie Discovery: Search for movies by title or find similar movies based on your preferences.
+- Movie Discovery: Search for movies by title or find similar movies based on your preferences
 
 - Favorites Management: Authenticated users can add movies to their favorites list for quick access.
 
